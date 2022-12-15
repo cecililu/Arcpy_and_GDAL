@@ -15,7 +15,12 @@ try:
         layer = dataSource.GetLayer()
         featureCount = layer.GetFeatureCount()
         print ("Number of features in"+ os.path.basename(shapefile),":  ",featureCount)
-
-    
+        
+        layer.SetAttributeFilter("TYPE = 'Gaunpalika")
+        i = 1
+        for feature in layer:
+             print (i, feature.GetField("LOCAL"))
+             i = i + 1
+        
 except:
     sys.exit(1)
