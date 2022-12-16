@@ -1,3 +1,5 @@
+#to create countour from DEM
+
 from osgeo import gdal
 driver = gdal.GetDriverByName('GTiff')
 raster = gdal.Open(r'C:\Users\msi\Desktop\srtm_cgiar_nepal_boundary.img')

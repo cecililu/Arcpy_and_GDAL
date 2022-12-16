@@ -1,3 +1,4 @@
+#reclassify on basis of elevation value in a  pixel Of DEM
 from osgeo import gdal
 
 driver = gdal.GetDriverByName('GTiff')
