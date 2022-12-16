@@ -1,7 +1,7 @@
 from osgeo import gdal
 
 driver = gdal.GetDriverByName('GTiff')
-raster = gdal.Open('raster.img')
+raster = gdal.Open(r'C:\Users\msi\Desktop\srtm_cgiar_nepal_boundary.img')
 band = raster.GetRasterBand(1)
 print(band)
 lista = band.ReadAsArray()
@@ -9,16 +9,11 @@ lista = band.ReadAsArray()
 
 for j in  range(raster.RasterXSize):
     for i in  range(raster.RasterYSize):
-        if lista[i,j] < 200:
-            lista[i,j] = 1
-        elif 200 < lista[i,j] < 400:
-            lista[i,j] = 2
-        elif 400 < lista[i,j] < 600:
-            lista[i,j] = 3
-        elif 600 < lista[i,j] < 800:
-            lista[i,j] = 4
+        if lista[i,j] < 2500:
+            lista[i,j] = 0
         else:
-            lista[i,j] = 5
+            lista[i,j] = 1
+       
 
 # create new raster
 raster2 = driver.Create( 'raster2.tif', raster.RasterXSize , raster.RasterYSize , 1)
